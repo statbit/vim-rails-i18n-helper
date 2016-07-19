@@ -1,7 +1,7 @@
 function! CopyI18nLine() 
   let l:count = indent(line("."))
   let l:line = getline(".")
-  while l:count > 0
+  while l:count > 2
     let l:count = l:count - 2
     let l:prefix = repeat(' ',l:count)
     " rsearch for the next line that starts with this
