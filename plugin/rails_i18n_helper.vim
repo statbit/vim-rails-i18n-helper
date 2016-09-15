@@ -1,4 +1,5 @@
 function! CopyI18nLine() 
+  let l:line_num = line('.')
   let l:count = indent(line("."))
   let l:line = getline(".")
   while l:count > 2
@@ -16,5 +17,6 @@ function! CopyI18nLine()
   let l:line = substitute(l:line, ":", ".", "g")
 
   let @" = l:line
+  go l:line_num
 endfunction
 command! CopyI18nKey call CopyI18nLine()
