@@ -17,6 +17,7 @@ function! CopyI18nLine()
   let l:line = substitute(l:line, ":", ".", "g")
 
   let @" = l:line
-  go l:line_num
+  let l:cmd = ":normal :" . l:line_num . ""
+  execute l:cmd
 endfunction
 command! CopyI18nKey call CopyI18nLine()
