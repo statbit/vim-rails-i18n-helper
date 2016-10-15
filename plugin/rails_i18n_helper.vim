@@ -22,6 +22,7 @@ function! CopyI18nLine()
 endfunction
 command! CopyI18nKey call CopyI18nLine()
 
-:autocmd FileType haml imap <c-i><c-t> =t('
-:autocmd FileType erb imap <c-i><c-t> <% t('
-:autocmd FileType ruby imap <c-i><c-t> I18n.t('
+:autocmd FileType haml imap <c-i><c-t> =t('')<ESC>hi
+:autocmd FileType eruby imap <c-i><c-t> <% t('') %><ESC>hhhhi
+:autocmd FileType ruby imap <c-i><c-t> I18n.t('')<ESC>hi
+
