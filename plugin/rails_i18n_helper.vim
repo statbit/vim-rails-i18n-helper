@@ -22,6 +22,13 @@ function! CopyI18nLine()
 endfunction
 command! CopyI18nKey call CopyI18nLine()
 
+function! CopyI18nTag()
+  let l:line = getline(".") . l:line
+  let l:line = substitute(l:line, ":[^:]*$", "", "g")
+  let @" = "." . l:line
+endfunction
+command! CopyI18nTag call CopyI18nTag()
+
 :autocmd FileType haml imap <c-i><c-t> =t('')<ESC>hi
 :autocmd FileType eruby imap <c-i><c-t> <% t('') %><ESC>hhhhi
 :autocmd FileType ruby imap <c-i><c-t> I18n.t('')<ESC>hi
