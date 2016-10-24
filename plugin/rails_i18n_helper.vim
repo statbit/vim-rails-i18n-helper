@@ -23,7 +23,7 @@ endfunction
 command! CopyI18nKey call CopyI18nLine()
 
 function! CopyI18nTag()
-  let l:line = getline(".") . l:line
+  let l:line = getline(".")
   let l:line = substitute(l:line, ":[^:]*$", "", "g")
   let @" = "." . l:line
 endfunction
