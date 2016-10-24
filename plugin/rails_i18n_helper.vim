@@ -29,6 +29,21 @@ function! CopyI18nTag()
 endfunction
 command! CopyI18nTag call CopyI18nTag()
 
+function! FindI18nFile()
+  let l:filepath = @%
+  "app/views/biz/find_contacts/modals/_matches.html.haml"
+  let l:clean_fp = split( strpart(l:filepath, 10), '/')
+  let l:file = l:clean_fp[len(l:clean_fp) - 1]
+
+  let l:file = substitute(l:file, "^_", "", "g")
+  let l:file = substitute(l:file, "\.html.haml$","", "g")
+
+  execute "lgrep! -R " . l:file . " config/**/*.yml"
+  execute "lop"
+endfunction
+call FindI18nFile()
+
+
 :autocmd FileType haml imap <c-i><c-t> =t('')<ESC>hi
 :autocmd FileType eruby imap <c-i><c-t> <% t('') %><ESC>hhhhi
 :autocmd FileType ruby imap <c-i><c-t> I18n.t('')<ESC>hi
