@@ -41,7 +41,7 @@ function! FindI18nFile()
   execute "lgrep! -R " . l:file . " config/**/*.yml"
   execute "lop"
 endfunction
-command! FindI18nFile FindI18nFile()
+command! FindI18nFile call FindI18nFile()
 
 :autocmd FileType haml imap <c-i><c-t> =t('')<ESC>hi
 :autocmd FileType eruby imap <c-i><c-t> <% t('') %><ESC>hhhhi
